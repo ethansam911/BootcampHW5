@@ -5,18 +5,36 @@
         <title>Grid Tool</title>
         <link rel="stylesheet" href="styles.css">
     </head>
-<h1>Grid Tool<h1>
+    
+<h1 class="header">Grid Tool<h1>
     
 <body>
-    <button  onClick="addRow()" id="Add_row">Add Row</button>
+    <button  onClick="addRow()" >Add Row</button>
+    <button  onClick="removeRow()" >Remove Row</button>
+    <button  onClick="addColumn()" > Add Column </button>
+    <button  onClick="removeColumn()" > Remove Column </button>
+    <button onClick="clearColors()"> Clear Colors </button>
+    <button onClick="fillAllColors()"> Fill Colors </button>
+    <button onClick="fillRestColors()"> Fill Rest </button>
 
-    <button onClick="removeRow()" id="Remove_row">Remove Row</button>
+    <select id="colorDropdownMenu">
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="red">Red</option>
+        <option value="purple">Purple</option>
+        <option value="yellow">Yellow</option>
+        <option value="orange">Orange</option>
+    </select>
+ 
+
+
     <table id="main-grid">
 
         <!-- tr defines a row and is declared inside a table tag-->
         <tr>
             <!-- td defines a standard cell-->
             <td></td>
+
         </tr> 
     </table> 
         <script src="script.js"> </script>

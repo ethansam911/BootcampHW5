@@ -22,14 +22,48 @@ function addRow()
 }
 
 
+function addColumn()
+{
+    let rows = document.getElementsByTagName("tr");
+    console.log(rows);
+    
+    for(let i = 0; i< rows.length; i++)
+    {
+        let newCol = document.createElement('td');
+        
+        new.Col.onclick = function()
+        {
+            var newColor = document.getElementById("colorDropdown");
+            var val = newColor.options[newColor.selectedIndex].value;
+            this.style.backgroundColor = val;  
+        }
+        rows[i].appendChild(newCol);
+    }
+    amountOfColumns++;
+}
+
+
+
+//Remove a row from the grid
 function removeRow()
 {
 //Remove a row from this 
 //Grab the main grid 
 let mainGrid = document.getElementById("main-grid");
+let removeElement =  mainGrid.lastElementChild;
 
-
+    if(removeElement ===null)
+    {
+        alert("You cannot remove a row");
+    }
+    else
+    {
+        mainGrid.removeChild(removeElement);
+    }
+//Decrement the number of rows
+amountOfRows--;
 }
+
 
 
 

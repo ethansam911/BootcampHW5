@@ -1,3 +1,17 @@
+.header
+{
+    text-align:  center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+button 
+{
+ display: inline-block;   
+}
+.drop_down
+{
+    display: inline-block;
+}
+
 td 
 {
   height: 50px;
