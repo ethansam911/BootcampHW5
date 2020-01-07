@@ -1,6 +1,7 @@
 
 var amountOfRows = 1;
 var amountOfColumns = 1;
+//If true, latch is on and user is able to draw
 var holdDown = false;
 
 
@@ -18,7 +19,7 @@ function addRow()
         //Add event listener for newly added cells
         newRow.appendChild(cell);
     }
-    mainGrid.appendChild(cell);
+    mainGrid.appendChild(newRow);
     amountOfRows++;
 }
 
@@ -47,10 +48,9 @@ function addColumn() {
         console.log('row');
 
         let newCol = document.createElement('td');
-       
-
         //Add event listener to newly added cells
-        newCol.onclick = function () {
+        newCol.onclick = function () 
+        {
             var newColor = document.getElementById("colorDropdown");
             var val = newColor.options[newColor.selectedIndex].value;
             this.style.backgroundColor = val;
