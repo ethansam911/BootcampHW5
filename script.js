@@ -13,6 +13,22 @@ function cellConstructor() {
     var cell = document.createElement("td");
     cell.classList.add("colorless");
     cell.addEventListener("click", paintCell);
+    cell.addEventListener("mousedown", function() {
+        holdDown = true;
+    });
+    cell.addEventListener("mouseup", function() {
+        holdDown = false;
+    });
+    cell.addEventListener("mouseenter", function(event) {
+        if(holdDown) {
+            paintCell(event);
+        }
+    });
+    cell.addEventListener("mouseleave", function(event) {
+        if(holdDown) {
+            paintCell(event);
+        }
+    })
     return cell;
 } 
 
