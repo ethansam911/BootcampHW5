@@ -10,22 +10,46 @@
     
 <body>
     
-    <button onClick="addRow()" >Add Row</button>
-    <button onClick="removeRow()" >Remove Row</button>
-    <button onClick="addColumn()" > Add Column </button>
-    <button onClick="removeColumn()" > Remove Column </button>
-    <button onClick="clearColors()"> Clear Colors </button>
-    <button onClick="fillAllColors()"> Fill All Cells </button>
-    <button onClick="fillUnfilledColors()"> Fill Rest </button>
+    <div class="menu-group">
+        <h6 class="menu-group-title">Rows</h6>
+        <div>
+            <span class="readonly" id="numRows">1</span>
+            <button class="size-button" onclick="addRow()">+</button>
+            <button class="size-button" onclick="removeRow()">-</button>
+        </div>
+    </div>
+    <div class="menu-group">
+        <h6 class="menu-group-title">Columns</h6>
+        <div>
+            <span class="readonly" id="numCols">1</span>
+            <button class="size-button" onclick="addColumn()">+</button>
+            <button class="size-button" onclick="removeColumn()">-</button>
+        </div>
+    </div>
+    <div class="menu-group">
+        <h6 class="menu-group-title">Color</h6>
+        <div>
+            <span class="readonly" id="colorPreview">&nbsp;</span>
+            <select id="colorDropdownMenu">
+                <option value="blue" selected>Blue</option>
+                <option value="green">Green</option>
+                <option value="red">Red</option>
+                <option value="purple">Purple</option>
+                <option value="yellow">Yellow</option>
+                <option value="orange">Orange</option>
+            </select>
+        </div>
+    </div>
+    <div class="menu-group">
+        <h6 class="menu-group-title">Flood Fill</h6>
+        <div>
+            <button class="action" onclick="clearColors()">Erase Everything</button>
+            <button class="action" onclick="fillAllColors()">Fill everything</button>
+            <button class="action" onclick="fillUnfilledColors()">Fill background</button>
+        </div>
+    </div>
 
-    <select id="colorDropdownMenu">
-        <option value="blue">Blue</option>
-        <option value="green">Green</option>
-        <option value="red">Red</option>
-        <option value="purple">Purple</option>
-        <option value="yellow">Yellow</option>
-        <option value="orange">Orange</option>
-    </select>
+    
  
 
 
