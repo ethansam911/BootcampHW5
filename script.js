@@ -1,9 +1,11 @@
 
 var amountOfRows = 1;
 var amountOfColumns = 1;
-var drawing = false;
-function addRow() 
-{
+var holdDown = false;
+
+
+function addRow()
+{ 
     //Append a row to this
     //Grab the main grid
     let mainGrid = document.getElementById("main-grid");
@@ -13,10 +15,10 @@ function addRow()
     for (let i = 0; i < amountOfColumns; i++) 
     {
         let cell = document.createElement("td");
-        //Event listen
+        //Add event listener for newly added cells
         newRow.appendChild(cell);
     }
-
+    mainGrid.appendChild(cell);
     amountOfRows++;
 }
 
@@ -26,7 +28,8 @@ function removeRow()
     let mainGrid = document.getElementById("main-grid");
     let removeElement = mainGrid.lastElementChild;
 
-    if (removeElement === null) {
+    if (removeElement === null) 
+    {
         alert("You can't remove a row");
     } 
     else 
@@ -58,6 +61,7 @@ function addColumn() {
 
     amountOfColumns++;
 }
+
 function removeColumn()
 {
 let rows = document.getElementsByTagName("tr");
@@ -66,9 +70,30 @@ let rows = document.getElementsByTagName("tr");
         let elemToRemove = rows[i].lastElementChild;
         rows[i].removeChild(elemToRemove);
     }
+amountOfColumns--;
 }
 
-amountOfColumns--;
+function mouseHold(cell) {
+    cell.onmouseover = function() 
+    {
+        if (draw) 
+        {
+            var newColor = document.getElementById("colorDropdownMenu");
+            var val = newColor.options[newColor.selectedIndex].value;
+            this.style.backgroundColor = val;
+        }
+    }
+    cell.onmousedown = function() 
+    {
+        var newColor = document.getElementById("colorDropdownMenu");
+        var val = newColor.options[newColor.selectedIndex].value;
+        this.style.backgroundColor = val;
+        draw = true;
+    }
+    cell.onmouseup = function() {
+        draw = false;
+    }
+}
 
 function fillAllColors()
 {
