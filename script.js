@@ -1,7 +1,7 @@
 
-let amountOfRows = 1;
-let amountOfColumns = 1;
-
+var amountOfRows = 1;
+var amountOfColumns = 1;
+var drawing = false;
 function addRow() 
 {
     //Append a row to this
@@ -9,15 +9,14 @@ function addRow()
     let mainGrid = document.getElementById("main-grid");
     //Make the row that we want to populate and append to the tables
     let newRow = document.createElement("tr");
-
     //Populate the row with "squares" or cells aka TD elements;
     for (let i = 0; i < amountOfColumns; i++) 
     {
         let cell = document.createElement("td");
+        //Event listen
         newRow.appendChild(cell);
     }
 
-    mainGrid.appendChild(newRow);
     amountOfRows++;
 }
 
@@ -37,19 +36,62 @@ function removeRow()
     amountOfRows--;
 }
 
-function addColumn()
-{
-    let row = document.getElementsByTagName("tr");
-    console.log(row);
+function addColumn() {
+    let rows = document.getElementsByTagName("tr");
+    console.log(rows);
 
-    for(var i = 0; i < amountOfRows.length; i++)
-    {
-        console.log("Add row");
+    for (var i = 0; i < rows.length; i++) {
+        console.log('row');
+
         let newCol = document.createElement('td');
+       
+
+        //Add event listener to newly added cells
+        newCol.onclick = function () {
+            var newColor = document.getElementById("colorDropdown");
+            var val = newColor.options[newColor.selectedIndex].value;
+            this.style.backgroundColor = val;
+        }
+
         rows[i].appendChild(newCol);
     }
+
     amountOfColumns++;
 }
+function removeColumn()
+{
+let rows = document.getElementsByTagName("tr");
+    for (var i = 0; i < rows.length; i++) 
+    {
+        let elemToRemove = rows[i].lastElementChild;
+        rows[i].removeChild(elemToRemove);
+    }
+}
+
+amountOfColumns--;
+
+function fillAllColors()
+{
+    let table = document.getElementById("main-grid");
+    //If table is not empty
+    if(table !==null)
+    {
+        for(let i = 0, row; row = table.rows[i]; i++)
+        {
+            for(let j = 0, col; col = row.cells[j]; j++)
+            {
+                var newColor = document.getElementById("colorDropdownMenu"); 
+                var value = newColor.options[newColor.selectedIndex].value;
+                row.cells[j].style.backgroundColor = val;
+            }
+        }
+    }
+}
+
+
+
+
+
 
 
 
