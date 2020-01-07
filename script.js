@@ -1,4 +1,4 @@
-
+/***************** GLOBAL VARIABLES *****************/
 var amountOfRows = 1;
 var amountOfColumns = 1;
 //If true, latch is on and user is able to draw
@@ -8,7 +8,7 @@ var showNumRows = document.getElementById("numRows");
 var showNumCols = document.getElementById("numCols");
 
 
-/***** CELL CONSTRUCTOR *****/
+/***************** CELL CONSTRUCTOR *****************/
 function cellConstructor() {
     var cell = document.createElement("td");
     cell.classList.add("colorless");
@@ -16,8 +16,8 @@ function cellConstructor() {
     return cell;
 } 
 
-/***** PAINTING EVENTS *****/
-//applies the current color to the target of an event
+/***************** PAINTING EVENTS *****************/
+//This function applies the current color to the target of an event
 function paintCell(event) {
     //shorter name for long property
     var classes = event.target.classList;
@@ -28,25 +28,31 @@ function paintCell(event) {
     event.target.style.backgroundColor = color;
 }
 
-//Resets the color of a cell (element)
+//This function resets the color of a cell (element)
 function clearCell(cell) {
     cell.classList.remove(cell.classList.item(0));
     cell.classList.add("colorless");
     cell.style.backgroundColor = "";
 }
 
-//initialize color preview box
-var colorPreview = document.getElementById("colorPreview");
-colorPreview.style.backgroundColor = "blue";
+function setColor(str) {
+    color = str;
+    documnet.getElementById("colorPreview").style.backgroundColor = str;
+}
 
+//variables to store frequently used elements
+var colorPreview = document.getElementById("colorPreview"); //box showing color preview
+var colorMenu = document.getElementById("colorDropdownMenu"); //drop down menu
 //event listener for color changing
-document.getElementById("colorDropdownMenu").addEventListener("change", function(event) {
+colorMenu.addEventListener("change", function(event) {
     let c = event.target;
     color = c.options[c.selectedIndex].value;
     colorPreview.style.backgroundColor = color;
-});
+}); 
+//initialize color preview box
+colorMenu.dispatchEvent(new Event("change"));
 
-/***** GRID SIZE BUTTONS *****/
+/***************** GRID SIZE BUTTONS *****************/
 
 function addRow()
 { 
@@ -106,7 +112,7 @@ let rows = document.getElementsByTagName("tr");
     showNumCols.innerHTML = amountOfColumns;
 }
 
-
+/***************** FLOOD FILL *****************/
 function fillAllColors()
 {   
     //Set table to main-grid elementId
