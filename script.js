@@ -12,7 +12,7 @@ function cellConstructor() {
     cell.classList.add("colorless");
     cell.addEventListener("click", paintCell);
     return cell;
-}
+} 
 
 /***** PAINTING EVENTS *****/
 //applies the current color to the target of an event
@@ -116,7 +116,8 @@ function fillAllColors()
 
 function fillUnfilledColors() {
     var colorless = document.getElementsByClassName("colorless");
-    while(colorless.length > 0) {
+    while(colorless.length > 0) 
+    {
         paintCell({target: colorless[0]});
     }
 }
