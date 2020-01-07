@@ -9,6 +9,10 @@ var showNumCols = document.getElementById("numCols");
 
 
 /***************** CELL CONSTRUCTOR *****************/
+
+window.onload = function () {
+    addRow();
+};
 function cellConstructor() {
     var cell = document.createElement("td");
     cell.classList.add("colorless");
