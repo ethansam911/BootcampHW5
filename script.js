@@ -73,27 +73,6 @@ let rows = document.getElementsByTagName("tr");
 amountOfColumns--;
 }
 
-function mouseHold(cell) {
-    cell.onmouseover = function() 
-    {
-        if (draw) 
-        {
-            var newColor = document.getElementById("colorDropdownMenu");
-            var val = newColor.options[newColor.selectedIndex].value;
-            this.style.backgroundColor = val;
-        }
-    }
-    cell.onmousedown = function() 
-    {
-        var newColor = document.getElementById("colorDropdownMenu");
-        var val = newColor.options[newColor.selectedIndex].value;
-        this.style.backgroundColor = val;
-        draw = true;
-    }
-    cell.onmouseup = function() {
-        draw = false;
-    }
-}
 
 function fillAllColors()
 {
