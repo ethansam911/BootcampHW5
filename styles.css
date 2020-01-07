@@ -25,3 +25,33 @@ td
   width: 50px;
   background-color: black;
 }
+
+.menu-group {
+	display: inline-block;
+	border: 2px inset black;
+	background-color: #ddd;
+}
+
+.menu-group-title {
+	display: block;
+	text-align: center;
+	background-color: #eee;
+	margin: 0 0;
+	font-size: 1em;
+}
+
+.menu-group div {
+	padding: 5px 5px;
+}
+
+.size-button, .action {
+	height: auto;
+	width: auto;
+}
+
+.readonly {
+	font-family: monospace;
+	display: inline-block;
+	padding-right: 10px;
+	padding-left: 10px;
+}

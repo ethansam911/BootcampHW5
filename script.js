@@ -33,9 +33,15 @@ function clearCell(cell) {
     cell.style.backgroundColor = "";
 }
 
+//initialize color preview box
+var colorPreview = document.getElementById("colorPreview");
+colorPreview.style.backgroundColor = "blue";
+
+//event listener for color changing
 document.getElementById("colorDropdownMenu").addEventListener("change", function(event) {
     let c = event.target;
     color = c.options[c.selectedIndex].value;
+    colorPreview.style.backgroundColor = color;
 });
 
 /***** GRID SIZE BUTTONS *****/
