@@ -4,6 +4,8 @@ var amountOfColumns = 1;
 //If true, latch is on and user is able to draw
 var holdDown = false;
 var color = "blue";
+var showNumRows = document.getElementById("numRows");
+var showNumCols = document.getElementById("numCols");
 
 
 /***** CELL CONSTRUCTOR *****/
@@ -60,6 +62,7 @@ function addRow()
     }
     mainGrid.appendChild(newRow);
     amountOfRows++;
+    showNumRows.innerHTML = amountOfRows;
 }
 
 
@@ -77,6 +80,7 @@ function removeRow()
         mainGrid.removeChild(removeElement);
     }
     amountOfRows--;
+    showNumRows.innerHTML = amountOfRows;
 }
 
 function addColumn() {
@@ -87,6 +91,7 @@ function addColumn() {
         rows[i].appendChild(cellConstructor());
     }
     amountOfColumns++;
+    showNumCols.innerHTML = amountOfColumns;
 }
 
 function removeColumn()
@@ -97,7 +102,8 @@ let rows = document.getElementsByTagName("tr");
         let elemToRemove = rows[i].lastElementChild;
         rows[i].removeChild(elemToRemove);
     }
-amountOfColumns--;
+    amountOfColumns--;
+    showNumCols.innerHTML = amountOfColumns;
 }
 
 
