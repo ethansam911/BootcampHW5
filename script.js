@@ -1,6 +1,7 @@
 
 var amountOfRows = 1;
 var amountOfColumns = 1;
+//If true, latch is on and user is able to draw
 var holdDown = false;
 var color = "blue";
 
@@ -60,7 +61,6 @@ function addColumn() {
     for (var i = 0; i < rows.length; i++) {
         rows[i].appendChild(cellConstructor());
     }
-
     amountOfColumns++;
 }
 
@@ -77,9 +77,10 @@ amountOfColumns--;
 
 
 function fillAllColors()
-{
+{   
+    //Set table to main-grid elementId
     let table = document.getElementById("main-grid");
-    //If table is not empty
+    //If table is not empty aka null, iterate through the cells
     if(table !==null)
     {
         for(let i = 0, row; row = table.rows[i]; i++)
@@ -87,7 +88,7 @@ function fillAllColors()
             for(let j = 0, col; col = row.cells[j]; j++)
             {
                 var newColor = document.getElementById("colorDropdownMenu"); 
-                var value = newColor.options[newColor.selectedIndex].value;
+                var val = newColor.options[newColor.selectedIndex].value;
                 row.cells[j].style.backgroundColor = val;
             }
         }
