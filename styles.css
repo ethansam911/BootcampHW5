@@ -1,7 +1,8 @@
 
 
 body{
-  background-color: gray;  
+  background-color: #A3C4BC;  
+  color: #273C2C;
 }
 .header
 {
@@ -23,32 +24,38 @@ td
 {
   height: 50px;
   width: 50px;
-  background-color: black;
+  background-color: #626868;
 }
 
+/* Wraps each group of controls */
 .menu-group {
 	display: inline-block;
-	border: 2px inset black;
-	background-color: #ddd;
+	border-radius: 5px;
+	background-color: #BFD7B5;
 }
 
+/* Vertically centered, lighter background, label above a menu group */
 .menu-group-title {
 	display: block;
 	text-align: center;
-	background-color: #eee;
+	background-color: #E7EFC5;
+	border-radius:  5px;
 	margin: 0 0;
-	font-size: 1em;
+	font-size: 0.75em;
 }
 
+/* Darker colored body of a menu group that contains the actual controls */
 .menu-group div {
 	padding: 5px 5px;
 }
 
+/* Button styles to undo the default button style */
 .size-button, .action {
 	height: auto;
 	width: auto;
 }
 
+/* Used for spans containing row and column numbers */
 .readonly {
 	font-family: monospace;
 	display: inline-block;
