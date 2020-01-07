@@ -18,7 +18,7 @@ function addRow()
         //Add event listener for newly added cells
         newRow.appendChild(cell);
     }
-    mainGrid.appendChild(cell);
+    mainGrid.appendChild(newRow);
     amountOfRows++;
 }
 
