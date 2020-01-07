@@ -126,6 +126,15 @@ function fillAllColors()
     }
 }
 
+//Resets every cell. It will have a class of colorless and the default background
+function clearColors() {
+    var cells = document.getElementsByTagName("td");
+    for(var i = 0; i < cells.length; i++) {
+        clearCell(cells[i]);
+    }
+}
+
+//Paints all the colorless cells with the selected color
 function fillUnfilledColors() {
     var colorless = document.getElementsByClassName("colorless");
     while(colorless.length > 0) 
