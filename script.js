@@ -12,18 +12,23 @@ var showNumCols = document.getElementById("numCols");
 function cellConstructor() {
     var cell = document.createElement("td");
     cell.classList.add("colorless");
+    //normal event when this cell is clicked once, paint it
     cell.addEventListener("click", paintCell);
+    //if user begins dragging their mouse, record this in global variable
     cell.addEventListener("mousedown", function() {
         holdDown = true;
     });
+    //if user stops dragging their mouse, record this in global variable
     cell.addEventListener("mouseup", function() {
         holdDown = false;
     });
+    //if user enters a cell while the mouse is being dragged, paint it
     cell.addEventListener("mouseenter", function(event) {
         if(holdDown) {
             paintCell(event);
         }
     });
+    //if user exits a cell while the mouse is being dragged, paint it
     cell.addEventListener("mouseleave", function(event) {
         if(holdDown) {
             paintCell(event);
