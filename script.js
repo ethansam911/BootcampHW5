@@ -16,8 +16,19 @@ function cellConstructor() {
 
 /***** PAINTING EVENTS *****/
 function paintCell(event) {
-    event.target.classList.add(color);
+    //shorter name for long property
+    var classes = event.target.classList;
+    //remove old color
+    classes.remove(classes.item(0));
+    //add new color
+    classes.add(color);
+    event.target.style.backgroundColor = color;
 }
+
+document.getElementById("colorDropdownMenu").addEventListener("change", function(event) {
+    let c = event.target;
+    color = c.options[c.selectedIndex].value;
+});
 
 /***** GRID SIZE BUTTONS *****/
 
