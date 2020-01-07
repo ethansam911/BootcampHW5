@@ -3,7 +3,23 @@ var amountOfRows = 1;
 var amountOfColumns = 1;
 //If true, latch is on and user is able to draw
 var holdDown = false;
+var color = "blue";
 
+
+/***** CELL CONSTRUCTOR *****/
+function cellConstructor() {
+    var cell = document.createElement("td");
+    cell.classList.add("colorless");
+    cell.addEventListener("click", paintCell);
+    return cell;
+}
+
+/***** PAINTING EVENTS *****/
+function paintCell(event) {
+    event.target.classList.add(color);
+}
+
+/***** GRID SIZE BUTTONS *****/
 
 function addRow()
 { 
@@ -15,9 +31,7 @@ function addRow()
     //Populate the row with "squares" or cells aka TD elements;
     for (let i = 0; i < amountOfColumns; i++) 
     {
-        let cell = document.createElement("td");
-        //Add event listener for newly added cells
-        newRow.appendChild(cell);
+        newRow.appendChild(cellConstructor());
     }
     mainGrid.appendChild(newRow);
     amountOfRows++;
@@ -45,18 +59,7 @@ function addColumn() {
     console.log(rows);
 
     for (var i = 0; i < rows.length; i++) {
-        console.log('row');
-
-        let newCol = document.createElement('td');
-        //Add event listener to newly added cells
-        newCol.onclick = function () 
-        {
-            var newColor = document.getElementById("colorDropdownMenu");
-            var val = newColor.options[newColor.selectedIndex].value;
-            this.style.backgroundColor = val;
-        }
-
-        rows[i].appendChild(newCol);
+        rows[i].appendChild(cellConstructor());
     }
     amountOfColumns++;
 }
