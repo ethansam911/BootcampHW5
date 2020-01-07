@@ -22,48 +22,34 @@ function addRow()
 }
 
 
+function removeRow()
+{
+    let mainGrid = document.getElementById("main-grid");
+    let removeElement = mainGrid.lastElementChild;
+
+    if (removeElement === null) {
+        alert("You can't remove a row");
+    } 
+    else 
+    {
+        mainGrid.removeChild(removeElement);
+    }
+    amountOfRows--;
+}
+
 function addColumn()
 {
-    let rows = document.getElementsByTagName("tr");
-    console.log(rows);
-    
-    for(let i = 0; i< rows.length; i++)
+    let row = document.getElementsByTagName("tr");
+    console.log(row);
+
+    for(var i = 0; i < amountOfRows.length; i++)
     {
+        console.log("Add row");
         let newCol = document.createElement('td');
-        
-        new.Col.onclick = function()
-        {
-            var newColor = document.getElementById("colorDropdown");
-            var val = newColor.options[newColor.selectedIndex].value;
-            this.style.backgroundColor = val;  
-        }
         rows[i].appendChild(newCol);
     }
     amountOfColumns++;
 }
-
-
-
-//Remove a row from the grid
-function removeRow()
-{
-//Remove a row from this 
-//Grab the main grid 
-let mainGrid = document.getElementById("main-grid");
-let removeElement =  mainGrid.lastElementChild;
-
-    if(removeElement ===null)
-    {
-        alert("You cannot remove a row");
-    }
-    else
-    {
-        mainGrid.removeChild(removeElement);
-    }
-//Decrement the number of rows
-amountOfRows--;
-}
-
 
 
 
