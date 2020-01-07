@@ -15,6 +15,7 @@ function cellConstructor() {
 }
 
 /***** PAINTING EVENTS *****/
+//applies the current color to the target of an event
 function paintCell(event) {
     //shorter name for long property
     var classes = event.target.classList;
@@ -23,6 +24,13 @@ function paintCell(event) {
     //add new color
     classes.add(color);
     event.target.style.backgroundColor = color;
+}
+
+//Resets the color of a cell (element)
+function clearCell(cell) {
+    cell.classList.remove(cell.classList.item(0));
+    cell.classList.add("colorless");
+    cell.style.backgroundColor = "";
 }
 
 document.getElementById("colorDropdownMenu").addEventListener("change", function(event) {
@@ -103,6 +111,13 @@ function fillAllColors()
                 row.cells[j].style.backgroundColor = val;
             }
         }
+    }
+}
+
+function fillUnfilledColors() {
+    var colorless = document.getElementsByClassName("colorless");
+    while(colorless.length > 0) {
+        paintCell({target: colorless[0]});
     }
 }
 
