@@ -51,14 +51,13 @@ function addColumn() {
         //Add event listener to newly added cells
         newCol.onclick = function () 
         {
-            var newColor = document.getElementById("colorDropdown");
+            var newColor = document.getElementById("colorDropdownMenu");
             var val = newColor.options[newColor.selectedIndex].value;
             this.style.backgroundColor = val;
         }
 
         rows[i].appendChild(newCol);
     }
-
     amountOfColumns++;
 }
 
@@ -77,7 +76,7 @@ amountOfColumns--;
 function fillAllColors()
 {
     let table = document.getElementById("main-grid");
-    //If table is not empty
+    //If table is not empty aka null, iterate through the cells
     if(table !==null)
     {
         for(let i = 0, row; row = table.rows[i]; i++)
@@ -85,7 +84,7 @@ function fillAllColors()
             for(let j = 0, col; col = row.cells[j]; j++)
             {
                 var newColor = document.getElementById("colorDropdownMenu"); 
-                var value = newColor.options[newColor.selectedIndex].value;
+                var val = newColor.options[newColor.selectedIndex].value;
                 row.cells[j].style.backgroundColor = val;
             }
         }
