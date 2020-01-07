@@ -92,6 +92,23 @@ function fillAllColors()
     }
 }
 
+function clearColors()
+{
+    //Reproduce the above code to clear each cell
+    let table = document.getElementById("main-grid");
+    //If table is not empty aka null, iterate through the cells
+    if (table !== null) {
+        for (let i = 0, row; row = table.rows[i]; i++) 
+        {
+            for (let j = 0, col; col = row.cells[j]; j++) 
+            {
+                row.cells[j].style.backgroundColor = "black";
+            }
+        }
+    }
+}
+
+
 
 
 
