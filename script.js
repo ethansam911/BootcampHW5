@@ -74,7 +74,8 @@ amountOfColumns--;
 
 
 function fillAllColors()
-{
+{   
+    //Set table to main-grid elementId
     let table = document.getElementById("main-grid");
     //If table is not empty aka null, iterate through the cells
     if(table !==null)
